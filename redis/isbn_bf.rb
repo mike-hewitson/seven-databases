@@ -14,11 +14,11 @@ bloomfilter = BloomFilter::Redis.new(:size => 1000000)
 $redis = Redis.new(:host => "127.0.0.1", :port => 6379)
 $redis.flushall
 
-count, start = 0, Time.now
+count, count_words, start = 0, 0, Time.now
 File.open(ARGV[0]).each do |line|
   count += 1
   next if count == 1
-  _, _, _, title = line.split("\t")
+  bob, title = line.scrub.split(";")
   next if title == "\n"
 
   words = title.gsub(/[^\w\s]+/, '').downcase
@@ -31,9 +31,11 @@ File.open(ARGV[0]).each do |line|
     puts word
     # add the new word to the bloomfilter
     bloomfilter.insert(word)
+    count_words += 1
   end
   # set the LIMIT value if you do not wish to populate the entire dataset
   break if count >= LIMIT
 end
 puts "Contains Jabbyredis? #{bloomfilter.include?('jabbyredis')}"
 puts "#{count} lines in #{Time.now - start} seconds"
+puts "#{count_words} words in #{Time.now - start} seconds"

@@ -12,7 +12,7 @@ var
   events = require('events'),
   esc = require('querystring').escape,
   redis = require('redis'),
-  neo4j = require('../neo4j/neo4j_driver.js');
+  neo4j = require('./neo4j_driver.js');
 
 exports.createClient = function(options) {
   options = options || {};

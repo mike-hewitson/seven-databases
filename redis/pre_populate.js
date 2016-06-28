@@ -14,7 +14,7 @@ var
   processedLines = 0,
 
   // standard libraries
-  csv = require('csv'),
+  csv = require('fast-csv'),
   redis = require('redis'),
 
   // database clients
@@ -45,9 +45,8 @@ function trackLineCount() {
  * and populate Redis with the given values.
  */
 function populateRedis() {
-  csv().
-  fromPath( tsvFileName, { delimiter: '\t', quote: '' }).
-  on('data', function(data, index) {
+  csv.fromPath( tsvFileName, { delimiter: '\t', quote: '' })
+  .on('data', function(data, index) {
     var
       artist = data[2],
       band = data[3],
@@ -61,8 +60,8 @@ function populateRedis() {
       redis_client.sadd('artist:' + band + ':' + artist, role);
     });
     trackLineCount();
-  }).
-  on('end', function(total_lines)
+  })
+  .on('end', function(total_lines)
   {
     console.log('Total Lines Processed: ' + processedLines);
     redis_client.quit();

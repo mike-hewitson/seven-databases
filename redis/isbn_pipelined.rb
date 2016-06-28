@@ -12,15 +12,20 @@ LIMIT = 1.0 / 0  # 1.0/0 is Infinity in Ruby
 # %w{rubygems hiredis redis/connection/hiredis}.each{|r| require r}
 %w{rubygems time redis}.each{|r| require r}
 
+# $redis = Hiredis::Connection.new
+# $redis.connect("127.0.0.1", 6379)
+# $redis.write ["flushall"]
 $redis = Redis.new(:host => "127.0.0.1", :port => 6379)
 $redis.flushall
 
 # set line data as a single batch update
 def flush(batch)
+  # $redis.write ["pipelined"] do
   $redis.pipelined do
     batch.each do |saved_line|
-      isbn, _, _, title = line.split("\t")
+      isbn, title = saved_line.scrub.split(";")
       next if isbn.empty? || title == "\n"
+      # $redis.write ["SET", isbn, title.strip]
       $redis.set(isbn, title.strip)
     end
   end

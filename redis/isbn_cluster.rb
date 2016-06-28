@@ -19,7 +19,7 @@ count, start = 0, Time.now
 File.open(ARGV[0]).each do |line|
   count += 1
   next if count == 1
-  isbn, _, _, title = line.split("\t")
+  isbn, title = line.scrub.split(";")
   next if isbn.empty? || title == "\n"
 
   $redis.set(isbn, title.strip)
