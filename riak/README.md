@@ -2,7 +2,7 @@
 
 Put the instructions etc for the team here
 
-## Install Erlang using kerl Ubuntu 14.04 64:
+# Install Erlang using kerl Ubuntu 14.04 64:
 ### Install dependencies:
 ```
 $ sudo apt-get update
