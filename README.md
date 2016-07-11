@@ -24,4 +24,5 @@ We will try and get a vagrant build for it all!
  * Default User: vagrant Password: vagrant (Type "vagrant ssh" to use vagrant to login or "ssh vagrant@192.168.33.11")
  * Also note that the vagrant user is the root user.
  * Ports forwarded: 80 -> 9091, 8080 -> 9090, 22 -> 2222. 
+ * Default ram for the vm is 1GB. (Please unsure you have 1GB to spare on your machine)
  
