@@ -40,3 +40,9 @@ Don't forget to update the .gitignore file with stuff not to be added to the rep
 
 ## Issues
 We keep track of everything around the repository using Github issues.
+
+## File formats
+Where you are creating documents, please use markdown format (*.md).
+```
+https://guides.github.com/features/mastering-markdown/
+```
