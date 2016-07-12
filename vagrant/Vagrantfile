@@ -8,7 +8,7 @@
 Vagrant.configure(2) do |config|
   config.vm.provision :shell, inline: 'mkdir -p /tmp/vagrant-chef/cookbooks/nodes'
   config.vm.provision "chef_solo" do |chef|
-    chef.add_recipe "riak"
+    chef.run_list = ["recipe[riak]", "recipe[postgres]"]
   end
 
 
