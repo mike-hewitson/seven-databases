@@ -2,6 +2,25 @@
 
 Put the instructions etc for the team here
 
+# Builds
+
+Dev tools, which are automatically installed by the vagrant build
+
+https://github.com/basho/riak-client-tools/tree/master/devrel
+
+This is installed in the vagrant home, under Projects/basho/dervrel
+
+
+
+
+
+
+
+
+
+
+# WARNING - IGNORE THE STUFF BELOW
+ 
 # Install Erlang using kerl Ubuntu 14.04 64:
 ### Install dependencies:
 ```
