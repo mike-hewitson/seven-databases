@@ -1,0 +1,1 @@
+{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/mike.hewitson/src/seven-databases/vagrant","disabled":false,"__vagrantfile":true},"v-csc-6ae519682":{"id":"v-csc-6ae519682","guestpath":"/tmp/vagrant-chef/bb327ac7c848e1ab8d47f64584efde75/cookbooks","hostpath":"/Users/mike.hewitson/src/seven-databases/vagrant/cookbooks","disabled":false,"__vagrantfile":true}}}
