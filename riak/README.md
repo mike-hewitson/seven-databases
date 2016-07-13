@@ -23,7 +23,7 @@ $ dev1/bin/riak start
 ```
 …. or
 ```
-$ for node in dev*; do $node/bin/riak start; done
+$ for node in dev*; do sudo $node/bin/riak start; done
 ```
 
 Check
