@@ -8,14 +8,14 @@ Dev tools, which are automatically installed by the vagrant build
 
 https://github.com/basho/riak-client-tools/tree/master/devrel
 
-This is installed in the vagrant home, under Projects/basho/dervrel
-
 A development cluster is automativally built for you, with four nodes. To check, test etc, follow the instructions below:
 
-Check
+Check installation of cluster
 ```
-$ cd dev;ls
+$ cd Projects/basho/riak/dev
+$ cd ls
 ```
+You should see dev1, dev2 etc
 
 Start
 ```
