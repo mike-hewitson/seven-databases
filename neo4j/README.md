@@ -55,3 +55,7 @@ Wedadmin: heetp://localhost:7474/webadmin/
 
 Some useful info http://www.slideshare.net/maxdemarzi/introduction-to-gremlin
 
+## Data files
+
+I've included the performance.tsv file in the repo. You won't find it anywhere.
+
