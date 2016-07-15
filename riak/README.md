@@ -98,6 +98,9 @@ Your HTTP port might differ, so check your configuration files for the valid por
 $ curl http://localhost:10018/buckets/welcome/keys/german
 ```
 
+# General instructions
+
+Updated hotel.rb to fix Riak version change issues. You may need to adjust the port number.
 
 # Install OSX Dev Cluster
 ## Quick start development cluster when all else fails
