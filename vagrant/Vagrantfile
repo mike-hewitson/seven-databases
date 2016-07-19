@@ -6,9 +6,21 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure(2) do |config|
-  config.vm.provision :shell, inline: 'mkdir -p /tmp/vagrant-chef/cookbooks/nodes'
-  config.vm.provision "chef_solo" do |chef|
-    chef.run_list = ["recipe[general]", "recipe[riak-dev]", "recipe[postgres]"]
+
+  config.vm.define "postgres", autostart: true do |host|
+
+    host.vm.provision :shell, inline: 'mkdir -p /tmp/vagrant-chef/cookbooks/nodes'
+    host.vm.provision "chef_solo" do |chef|
+      chef.run_list = ["recipe[postgres]"]
+    end
+  end
+
+  config.vm.define "riak", autostart: false do |host|
+
+    host.vm.provision :shell, inline: 'mkdir -p /tmp/vagrant-chef/cookbooks/nodes'
+    host.vm.provision "chef_solo" do |chef|
+      chef.run_list = ["recipe[general]", "recipe[riak-dev]"]
+    end
   end
 
 
