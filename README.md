@@ -15,7 +15,7 @@ We will try and get a vagrant build for it all!
 2. Download the latest version of vagrant from https://www.vagrantup.com/downloads.html.
 3. Install vagrant after installing virtual box.  
 4. Navigate to the "vagrant" folder within this project. There should be a Vagrantfile with all the appropriate settings.
-5. Type "vagrant up" and this should build your vm.
+5. Type "vagrant up {module}" and this should build your vm. {Module} refers to the name of the database you would like to install. By default postgres is installed. e.g "vagrant up riak" would setup a vm with riak installed.
  
 ##### Default Settings
 ###### All the below settings can be configured in the vagrantfile.
