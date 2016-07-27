@@ -20,7 +20,7 @@ bash "install_riak_dev" do
 		git clone git://github.com/basho/riak.git
 		cd riak
 		make locked-deps
-		make devrel DEVNODES=3
+		make devrel DEVNODES=5
 
     sudo apt-get -y update
     sudo apt-get -y install build-essential zlib1g-dev libssl-dev libreadline6-dev libyaml-dev
