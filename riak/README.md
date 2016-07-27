@@ -34,7 +34,7 @@ $ for node in dev*; do sudo $node/bin/riak ping; done
 
 Create cluster
 ```
-$ for n in {2..4}; do sudo dev$n/bin/riak-admin cluster join dev1@127.0.0.1; done
+$ for n in {2..3}; do sudo dev$n/bin/riak-admin cluster join dev1@127.0.0.1; done
 $ sudo dev1/bin/riak-admin cluster plan
 $ sudo dev2/bin/riak-admin cluster commit
 ```
