@@ -20,7 +20,7 @@ bash "install_riak_dev" do
 		git clone git://github.com/basho/riak.git
 		cd riak
 		make locked-deps
-		make devrel DEVNODES=4
+		make devrel DEVNODES=5
 
   EOH
 end
