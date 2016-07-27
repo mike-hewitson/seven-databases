@@ -35,3 +35,52 @@ bash "install_riak_dev" do
     gem install riak-client json
   EOH
 end
+
+
+cookbook_file "home/vagrant/Projects/basho/riak/hotel.rb" do
+  source "/hotel.rb"
+  mode "755"
+  owner 'root'
+  group 'root'
+end
+
+cookbook_file "home/vagrant/Projects/basho/riak/polly.jpg" do
+  source "/polly.jpg"
+  mode "755"
+  owner 'root'
+  group 'root'
+end
+
+directory "home/vagrant/Projects/basho/riak/js_source" do
+  owner 'root'
+  group 'root'
+  action :create
+end
+
+cookbook_file "home/vagrant/Projects/basho/riak/js_source/my_validators.js" do
+  source "/my_validators.js"
+  mode "755"
+  owner 'root'
+  group 'root'
+end
+
+cookbook_file "/home/vagrant/Projects/basho/riak/dev/dev1/etc/advanced.config" do
+  source "/advanced.config"
+  mode "755"
+  owner 'root'
+  group 'root'
+end
+
+cookbook_file "/home/vagrant/Projects/basho/riak/dev/dev2/etc/advanced.config" do
+  source "/advanced.config"
+  mode "755"
+  owner 'root'
+  group 'root'
+end
+
+cookbook_file "/home/vagrant/Projects/basho/riak/dev/dev3/etc/advanced.config" do
+  source "/advanced.config"
+  mode "755"
+  owner 'root'
+  group 'root'
+end
