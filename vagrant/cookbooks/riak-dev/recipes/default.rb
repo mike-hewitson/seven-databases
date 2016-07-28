@@ -20,7 +20,67 @@ bash "install_riak_dev" do
 		git clone git://github.com/basho/riak.git
 		cd riak
 		make locked-deps
-		make devrel DEVNODES=4
+		make devrel DEVNODES=3
 
+    sudo apt-get -y update
+    sudo apt-get -y install build-essential zlib1g-dev libssl-dev libreadline6-dev libyaml-dev
+    cd /tmp
+    wget http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p481.tar.gz
+    tar -xvzf ruby-2.0.0-p481.tar.gz
+    cd ruby-2.0.0-p481/
+    ./configure --prefix=/usr/local
+    make
+    sudo make install
+    cd /home/vagrant/Projects/basho/riak
+    gem install riak-client json
   EOH
+end
+
+
+cookbook_file "home/vagrant/Projects/basho/riak/hotel.rb" do
+  source "/hotel.rb"
+  mode "755"
+  owner 'root'
+  group 'root'
+end
+
+cookbook_file "home/vagrant/Projects/basho/riak/polly.jpg" do
+  source "/polly.jpg"
+  mode "755"
+  owner 'root'
+  group 'root'
+end
+
+directory "home/vagrant/Projects/basho/riak/js_source" do
+  owner 'root'
+  group 'root'
+  action :create
+end
+
+cookbook_file "home/vagrant/Projects/basho/riak/js_source/my_validators.js" do
+  source "/my_validators.js"
+  mode "755"
+  owner 'root'
+  group 'root'
+end
+
+cookbook_file "/home/vagrant/Projects/basho/riak/dev/dev1/etc/advanced.config" do
+  source "/advanced.config"
+  mode "755"
+  owner 'root'
+  group 'root'
+end
+
+cookbook_file "/home/vagrant/Projects/basho/riak/dev/dev2/etc/advanced.config" do
+  source "/advanced.config"
+  mode "755"
+  owner 'root'
+  group 'root'
+end
+
+cookbook_file "/home/vagrant/Projects/basho/riak/dev/dev3/etc/advanced.config" do
+  source "/advanced.config"
+  mode "755"
+  owner 'root'
+  group 'root'
 end
