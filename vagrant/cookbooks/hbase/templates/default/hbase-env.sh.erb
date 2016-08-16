@@ -1,0 +1,49 @@
+#
+#/**
+# * Licensed to the Apache Software Foundation (ASF) under one
+# * or more contributor license agreements.  See the NOTICE file
+# * distributed with this work for additional information
+# * regarding copyright ownership.  The ASF licenses this file
+# * to you under the Apache License, Version 2.0 (the
+# * "License"); you may not use this file except in compliance
+# * with the License.  You may obtain a copy of the License at
+# *
+# *     http://www.apache.org/licenses/LICENSE-2.0
+# *
+# * Unless required by applicable law or agreed to in writing, software
+# * distributed under the License is distributed on an "AS IS" BASIS,
+# * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# * See the License for the specific language governing permissions and
+# * limitations under the License.
+# */
+
+# Set environment variables here.
+
+# This script sets variables multiple times over the course of starting an hbase process,
+# so try to keep things idempotent unless you want to take an even deeper look
+# into the startup scripts (bin/hbase, etc.)
+
+# The java implementation to use.  Java 1.7+ required.
+ export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+
+# Extra Java CLASSPATH elements.  Optional.
+# export HBASE_CLASSPATH=
+
+# The maximum amount of heap to use. Default is left to JVM default.
+# export HBASE_HEAPSIZE=1G
+
+# Uncomment below if you intend to use off heap cache. For example, to allocate 8G of
+# offheap, set the value to "8G".
+# export HBASE_OFFHEAPSIZE=1G
+
+# Extra Java runtime options.
+# Below are what we set by default.  May only work with SUN JVM.
+# For more on why as well as other possible settings,
+# see http://wiki.apache.org/hadoop/PerformanceTuning
+export HBASE_OPTS="-XX:+UseConcMarkSweepGC"
+
+# Configure PermSize. Only needed in JDK7. You can safely remove it for JDK8+
+export HBASE_MASTER_OPTS="$HBASE_MASTER_OPTS -XX:PermSize=128m -XX:MaxPermSize=128m"
+export HBASE_REGIONSERVER_OPTS="$HBASE_REGIONSERVER_OPTS -XX:PermSize=128m -XX:MaxPermSize=128m"
+
+# Uncomment one of the below three options to enable java garbage collection logging for the server-side processes.
