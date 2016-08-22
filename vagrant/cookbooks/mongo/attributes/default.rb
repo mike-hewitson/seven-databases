@@ -1,0 +1,1 @@
+default["mongo"]["version"] = "3.0.12"
