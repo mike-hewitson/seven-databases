@@ -34,7 +34,7 @@ Vagrant.configure(2) do |config|
     end
   end
 
-  config.vm.define "postgres", autostart: true do |host|
+  config.vm.define "mongo", autostart: true do |host|
 
     host.vm.provision :shell, inline: 'mkdir -p /tmp/vagrant-chef/cookbooks/nodes'
     host.vm.provision "chef_solo" do |chef|
