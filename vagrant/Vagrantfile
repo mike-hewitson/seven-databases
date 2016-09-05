@@ -38,8 +38,17 @@ Vagrant.configure(2) do |config|
 
     host.vm.provision :shell, inline: 'mkdir -p /tmp/vagrant-chef/cookbooks/nodes'
     host.vm.provision "chef_solo" do |chef|
-	  chef.install = false
+    chef.install = false
       chef.run_list = ["recipe[mongo]"]
+     end
+  end
+
+  config.vm.define "couchdb", autostart: true do |host|
+
+    host.vm.provision :shell, inline: 'mkdir -p /tmp/vagrant-chef/cookbooks/nodes'
+    host.vm.provision "chef_solo" do |chef|
+	  chef.install = false
+      chef.run_list = ["recipe[couchdb]"]
      end
   end
 
