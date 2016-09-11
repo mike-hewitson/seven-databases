@@ -9,7 +9,8 @@ bash "create_vagrant_database" do
   user "vagrant"
   environment ({'HOME' => '/home/vagrant', 'USER' => 'vagrant'})
   code <<-EOH
-  	sudo -u postgres createuser -s $(whoami); createdb $(whoami)
+    sudo -u postgres createuser -s $(whoami); createdb $(whoami)
+    psql -c "ALTER USER vagrant PASSWORD 'vagrant'"
   EOH
 end
 
