@@ -4,6 +4,8 @@ Put the instructions etc for the team here
 
 # Builds
 
+`vagrant up riak` takes a very long time (can be more than 1 hour based on machine and connection) with no output to the console for long periods.
+
 Dev tools, which are automatically installed by the vagrant build
 
 https://github.com/basho/riak-client-tools/tree/master/devrel
@@ -41,7 +43,7 @@ $ sudo dev2/bin/riak-admin cluster commit
 
 ### Testing the cluster
 
-See section below on access from outside the virtual machine for testing using Postman 
+See section below on access from outside the virtual machine for testing using Postman
 ```
 $ sudo dev1/bin/riak-admin member-status
 $ sudo dev1/bin/riak-admin cluster status
@@ -71,12 +73,12 @@ for node in dev*; do sudo sed -i.bak s/127.0.0.1/0.0.0.0/g $node/etc/riak.conf; 
 ```
 When running "vagrant up", pay special attention to the ports that are forwarded from your host system to the virtual machine. If you are having trouble connecting to a particular node, ensure the node is accessible on the correct port inside the VM, and that the VM port is forwarded from the expected port on the host system.
 
-With the cluster accessible from outside the virtual machine, using Postman as an http client makes testing easy. 
+With the cluster accessible from outside the virtual machine, using Postman as an http client makes testing easy.
 [Install Postman from here](https://www.getpostman.com/) to get started.
 
-From your host machine, do the following to check if it works from any http client: 
+From your host machine, do the following to check if it works from any http client:
 ```
-http://localhost:10018/ping 
+http://localhost:10018/ping
 ```
 
 For the brave, you can get the server stats by using this:
