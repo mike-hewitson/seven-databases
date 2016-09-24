@@ -79,14 +79,14 @@ template "/usr/local/hadoop-2.7.2/etc/hadoop/mapred-site.xml" do
   mode "644"
 end
 
-template "/usr/local/hbase-1.2.2/conf/hbase-env.sh" do
+template "/usr/local/hbase-1.2.3/conf/hbase-env.sh" do
   source "hbase-env.sh.erb"
    owner node['hbase']['user']
    group node['hbase']['user']
   mode "644"
 end
 
-template "/usr/local/hbase-1.2.2/conf/hbase-site.xml" do
+template "/usr/local/hbase-1.2.3/conf/hbase-site.xml" do
   source "hbase-site.xml.erb"
    owner node['hbase']['user']
    group node['hbase']['user']
