@@ -25,10 +25,13 @@ Some useful commands
 redis-server
 redis-cli
 
+------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------- When executing the below Please cd into the following path /home/vagrant/files -----------------------------
 ruby isbn.rb BX-Books.csv
 ruby isbn_pipelined.rb BX-Books.csv
 ruby isbn_cluster.rb BX-Books.csv
 ruby isbn_bf.rb BX-Books.csv
+------------------------------------------------------------------------------------------------------------------------------------------
 
 
 node pre_populate.js
