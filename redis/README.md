@@ -2,6 +2,43 @@
 
 Put the instructions etc for the team here
 
+# Builds
+
+'vagrant up redis' It should be very quick
+
+# Server
+
+'sudo service redis-server status redis-server is running' Check if redis server is up
+'sudo service redis-server restart' restart redis server
+
+# Notes
+
+Nodejs is installed
+NPM is installed
+
+This Vm is running Postgres, CouchDB, Neo4j and Redis
+
+Please note that this VM is running version 1.9.4 of Neo4j for now
+
+Some useful commands
+
+redis-server
+redis-cli
+
+------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------- When executing the below Please cd into the following path /home/vagrant/files -----------------------------
+ruby isbn.rb BX-Books.csv
+ruby isbn_pipelined.rb BX-Books.csv
+ruby isbn_cluster.rb BX-Books.csv
+ruby isbn_bf.rb BX-Books.csv
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+node pre_populate.js
+node populate_couch.js
+node graph_sync.js
+node bands.js
+
 # Installation
 Download current off Redis website
 Unzip, and change into directory
