@@ -61,6 +61,10 @@ Vagrant.configure(2) do |config|
      end
   end
 
+  config.vm.define "neo4j", autostart: false do |host|
+      host.vm.provision :shell, :path => "neo4j_setup.sh"
+  end
+
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
