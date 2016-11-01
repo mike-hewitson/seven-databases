@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo apt-get install zip -y
+
 echo
 echo "Installing Java..."
 cd /usr/local
@@ -21,5 +23,13 @@ echo "Updating Neo4j Config..."
 sed -i 's/#org\.neo4j\.server\.webserver\.address=0\.0\.0\.0/org.neo4j.server.webserver.address=0.0.0.0/' /etc/neo4j-community-2.2.5/conf/neo4j-server.properties
 
 echo
+echo "Installing Gremlin..."
+wget -nv http://tinkerpop.com/downloads/gremlin/gremlin-1.3.zip
+unzip gremlin-1.3.zip
+rm gremlin-1.3.zip
+ln -s /etc/gremlin-1.3/gremlin.sh /usr/bin/gremlin
+
+echo
 echo "Starting Neo4j..."
 neo4j start
+
