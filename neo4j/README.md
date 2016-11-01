@@ -9,6 +9,11 @@ Follow instruction to download tar, unzip it to home and cd to it
 $ bin/neo4j start
 Done
 
+## The Short Long Way
+run "vagrant up neo4j" which installs a newer version of neo4j
+and version 1.3 of gremlin alongside it.
+Done
+
 ## The Long Way
 Follow instruction to download tar, unzip it to home and cd to it
 
